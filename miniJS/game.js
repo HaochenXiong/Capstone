@@ -1,3 +1,5 @@
+const myFont = new FontFace('myFont', 'url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2)');
+
 function drawSprite(sprite, x, y){
     c.drawImage(
         spritesheet,
@@ -30,7 +32,7 @@ function draw(){
 
         livePlayer.draw();
 
-        drawText("Level: "+level, 22, false, 30, "white");
+        drawText("Level: "+level, 12, false, 30, "white");
     }
 }
 
@@ -53,9 +55,9 @@ function showTitle(){
 
     gameState = "title";
 
-    drawText("LIVE", 80, true, canvas.height/2 - 40, "white");
-    drawText("TILL LEVEL 6", 50, true, canvas.height/2 + 30, "white"); 
-    drawText("Press Any Key to Start", 20, true, canvas.height/2 + 80, "yellow");
+    drawText("LIVE", 50, true, canvas.height/2 - 35, "white");
+    drawText("TILL LEVEL 6", 35, true, canvas.height/2 + 30, "white"); 
+    drawText("Press Any Key to Start", 15, true, canvas.height/2 + 80, "yellow");
 }
 
 function startGame(){                                           
@@ -76,7 +78,7 @@ function startLevel(playerHp){
 
 function drawText(text, size, centered, textY, color){
     c.fillStyle = color;
-    c.font = size + "px monospace";
+    c.font = size + "px myFont";
     let textX;
     if(centered){
         textX = (canvas.width-c.measureText(text).width)/2;

@@ -18,10 +18,13 @@ shakeY = 0;
 const liveInterval = setInterval(draw, 15);
 
 function startLive(){
-    document.querySelector('#backButton').style.display = "block"
-    showTitle()
-    audio.BattleStart.play()
-    gameState == "title"
+    myFont.load().then(function(font){
+        document.fonts.add(font);
+        document.querySelector('#backButton').style.display = "block"
+        showTitle()
+        audio.BattleStart.play()
+        gameState == "title"
+    });	
 }
 
 window.addEventListener('keypress', (e) => {
