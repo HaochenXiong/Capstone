@@ -1,0 +1,137 @@
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.textOne {
+    position: absolute;
+    width: 550px;
+    height: 380px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 55px;
+    text-align: center;
+    color: white;
+}
+
+.or {
+    color: yellow;
+}
+
+.bVertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 45px;
+}
+
+button {
+    font-size: 15px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.arrowOne,
+.arrowTwo,
+.arrowThree {
+    opacity: 0;
+}
+
+.buttonOne:hover > .arrowOne {
+    opacity: 1;
+}
+
+.buttonTwo:hover > .arrowTwo {
+    opacity: 1;
+}
+
+.buttonThree:hover > .arrowThree {
+    opacity: 1;
+}
+
+/* About, Credit */
+.aboutText{
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -94%);
+    width: 550px;
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.aboutText::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.aboutText::-webkit-scrollbar-track {
+    background: black; 
+}
+
+
+.aboutText::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4); 
+}
+
+
+.aboutText::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+h3 {
+    color: yellow;
+    margin-top: 0;
+  }
+
+p {
+    color: white;
+    font-size: 13px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 5 px;
+    line-height: 24px; 
+}
+
+.controversies {
+    cursor: pointer;
+    text-decoration: underline 3px; 
+}
+
+.backToHomePage {
+    background: transparent;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(353%, 257.5%);
+}
+
+.backToHomePage:hover {
+    cursor: pointer;
+}
+
+.HomePageButton {
+    margin-top: 8px;
+    width: 40px;
+    height: 40px;
+}

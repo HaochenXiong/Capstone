@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Press Start 2P';
+        }
+        body {
+            background-color: black;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+        
+        .gameScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -86.8%);
+        }
+
+        .blackScreen {
+            background-color: black;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .boardPage {
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 190px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: none;
+        }
+
+        .boardTop{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+        
+        .boardBottom {
+            width: 560px;
+            margin-top: 10px;
+            margin-left: 25px;
+            text-align: left;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-left: 25px;
+            margin-bottom: 0;
+            margin-right: 0;
+            color: yellow;
+        }
+
+        p {
+            margin-top: 8px;
+            color: white;
+        }
+
+        .closeButton {
+            margin: 0;
+            color: white;
+            font-size: 30px;
+            padding-bottom: 5px;
+            margin-right: 25px;
+        }
+
+       .closeButton:hover {
+            cursor: pointer;
+        }
+
+        .backButton {
+            font-size: 25px;
+            color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            bottom: 20px;
+            right: 27.5px;
+            display: none;
+        }
+
+        .backButton:hover {
+            cursor: pointer;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .backToHomePage {
+            background: transparent;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(353%, 257.5%);
+        }
+
+        .backToHomePage:hover {
+            cursor: pointer;
+        }
+
+        .HomePageButton {
+            margin-top: 8px;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+    <div class = "container">
+        <img src="./img/retroMain.png" alt="Retro Game Screen">
+            <div class = "gameScreen">
+                <div id = "blackScreen" class = "blackScreen"></div>
+
+                <canvas></canvas>
+
+                <div id = "tutorialBoard" class = "boardPage">
+                    <div class = "boardTop">
+                        <h3>Welcome to the game world!</h3>
+                        <p id = "tutorialClose" class = "closeButton">&#10006;</p>
+                    </div>
+                    <div class = "boardBottom">
+                        <p>Feel free to explore!</p>
+                    </div>
+                </div>
+
+                <div id = "dungeonBoard" class = "boardPage">
+                    <div class = "boardTop">
+                        <h3>You found a Dungeon!</h3>
+                        <p id = "dungeonClose" class = "closeButton">&#10006;</p>
+                    </div>
+                    <div class = "boardBottom">
+                        <p>Are you ready to see the dark side?</p>
+                        <p>This is a one-way portal!</p>
+                    </div>
+                </div>
+
+                <div id = "liveBoard" class = "boardPage">
+                    <div class = "boardTop">
+                        <h3>Can you live till level 6?</h3>
+                        <p id = "liveClose" class = "closeButton">&#10006;</p>
+                    </div>
+                    <div class = "boardBottom">
+                        <p>Go to the stairs but be careful!</p>
+                        <p>It's a game making you addicted!</p>
+                    </div>
+                </div>
+
+                <div id = "knightBoard" class = "boardPage">
+                    <div class = "boardTop">
+                        <h3>To Be Continued...</h3>
+                        <p id = "knightClose" class = "closeButton">&#10006;</p>
+                    </div>
+                    <div class = "boardBottom">
+                        <p>Thanks for playing!</p>
+                    </div>
+                </div>
+
+                <div id = "backButton" class = "backButton">Back</div>
+            </div>
+        <div class = "backToHomePage" onclick='window.location.href = "./index.html"'>
+            <img src="./img/home.png" alt="Home Page" class = "HomePageButton">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+    integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" 
+    integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="./data/music.js"></script>
+    <script src="./data/tutorial.js"></script>
+    <script src="./data/dungeonTuto.js"></script>
+    <script src="./data/dungeonEnter.js"></script>
+    <script src="./data/liveEnter.js"></script>
+    <script src="./data/liveTuto.js"></script>
+    <script src="./data/knightTalk.js"></script>
+    <script src="./data/collisions.js"></script>
+    <script src="./data/dungeonCollisions.js"></script>
+    <script src="classes.js"></script>
+    <script src="logic.js"></script>
+    <script src="dungeon.js"></script>
+    <script src="./miniJS/game.js"></script>
+    <script src="./miniJS/map.js"></script>
+    <script src="./miniJS/tile.js"></script>
+    <script src="./miniJS/monster.js"></script>
+    <script src="./miniJS/util.js"></script>
+    <script src="live.js"></script>
+</head>
+<body>
+</body>
+</html>
